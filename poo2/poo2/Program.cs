@@ -1,4 +1,6 @@
-﻿List<Inventario> productos = new List<Inventario>();
+﻿using System.Threading.Channels;
+
+List<Inventario> productos = new List<Inventario>();
 int cantidad;
 do
 {
@@ -21,6 +23,20 @@ do
             productos.Add(inven);
             Console.Clear();
         }
+        Inventario mayor = productos[0];
+        double total=0;
+        Console.WriteLine("Listado de productos:\n");
+        foreach(Inventario inven in productos)
+        {
+            inven.MostrarInfo();
+            total += inven.PrecioTotal();
+            if (inven.precio > mayor.precio)
+            {
+                mayor = inven;
+            }
+        }
+        Console.WriteLine($"El precio valor de todo el inventario es: {total}");
+        Console.WriteLine($"El producto con el mayor precio es: {mayor.nombre}");
     }
 } while (cantidad<=0);
 class Inventario
