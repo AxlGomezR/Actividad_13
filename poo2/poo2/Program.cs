@@ -1,4 +1,20 @@
-﻿class Inventario
+﻿List<Inventario> productos = new List<Inventario>();
+int cantidad;
+do
+{
+    Console.WriteLine("Cuántos productos desea ingresar?");
+    cantidad = int.Parse(Console.ReadLine());
+    Console.Clear();
+    if (cantidad <= 0)
+    {
+        Console.WriteLine("Debe ingresar al menos un producto");
+    }
+    else
+    {
+
+    }
+} while (cantidad<=0);
+class Inventario
 {
     public string nombre;
     public double precio;
