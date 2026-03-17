@@ -11,7 +11,16 @@ do
     }
     else
     {
-
+        for(int i =0; i<cantidad; i++)
+        {
+            Console.WriteLine($"Datos producto {i+1}\n");
+            Inventario inven = new Inventario();
+            Console.WriteLine("Nombre del producto: "); inven.nombre = Console.ReadLine();
+            Console.WriteLine("Precio: "); inven.precio = double.Parse(Console.ReadLine());
+            Console.WriteLine("Existencias: "); inven.cantidad = int.Parse(Console.ReadLine());
+            productos.Add(inven);
+            Console.Clear();
+        }
     }
 } while (cantidad<=0);
 class Inventario
