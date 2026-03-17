@@ -1,17 +1,38 @@
-﻿List<Estudiante> estudiantes = new List<Estudiante>();
+﻿using System;
+using System.Collections.Generic;
+
+List<Estudiante> estudiantes = new List<Estudiante>();
 int cantidad;
 do
 {
     Console.WriteLine("Cunántos estudiantes desea ingresar?");
     cantidad = int.Parse(Console.ReadLine());
-
+    Console.Clear();
+    if (cantidad <= 0)
+    {
+        Console.WriteLine("Debe ingresar al menos un estudiante");
+    }
+    else
+    {
+        for(int i =0; i<cantidad; i++)
+        {
+            Estudiante e = new Estudiante();
+            Console.WriteLine($"Datos de estudiante {i+1}:");
+            Console.WriteLine($"Nombre: "); e.nombre = Console.ReadLine();
+            Console.WriteLine($"Nota 1: "); e.nota1 = double.Parse(Console.ReadLine());
+            Console.WriteLine($"Nota 2: "); e.nota2 = double.Parse(Console.ReadLine());
+            Console.WriteLine($"Nota 3: "); e.nota3 = double.Parse(Console.ReadLine());
+            estudiantes.Add( e );
+            Console.Clear();
+        }
+    }
 } while (cantidad<=0);
 class Estudiante
 {
-    string nombre;
-    double nota1;
-    double nota2;
-    double nota3;
+    public string nombre;
+    public double nota1;
+    public double nota2;
+    public double nota3;
 
     public double CalcularPromedio()
     {
