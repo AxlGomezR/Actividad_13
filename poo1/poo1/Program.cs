@@ -1,4 +1,12 @@
-﻿class Estudiante
+﻿List<Estudiante> estudiantes = new List<Estudiante>();
+int cantidad;
+do
+{
+    Console.WriteLine("Cunántos estudiantes desea ingresar?");
+    cantidad = int.Parse(Console.ReadLine());
+
+} while (cantidad<=0);
+class Estudiante
 {
     string nombre;
     double nota1;
