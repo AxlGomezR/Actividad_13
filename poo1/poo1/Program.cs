@@ -14,17 +14,28 @@ do
     }
     else
     {
-        for(int i =0; i<cantidad; i++)
+        for (int i = 0; i < cantidad; i++)
         {
             Estudiante e = new Estudiante();
-            Console.WriteLine($"Datos de estudiante {i+1}:");
+            Console.WriteLine($"Datos de estudiante {i + 1}:");
             Console.WriteLine($"Nombre: "); e.nombre = Console.ReadLine();
             Console.WriteLine($"Nota 1: "); e.nota1 = double.Parse(Console.ReadLine());
             Console.WriteLine($"Nota 2: "); e.nota2 = double.Parse(Console.ReadLine());
             Console.WriteLine($"Nota 3: "); e.nota3 = double.Parse(Console.ReadLine());
-            estudiantes.Add( e );
+            estudiantes.Add(e);
             Console.Clear();
         }
+        Estudiante mejor = estudiantes[0];
+        Console.WriteLine("Listado de estudiantes:\n");
+        foreach (Estudiante e in estudiantes)
+        {
+            e.MostrarInfo();
+            if (e.CalcularPromedio() > mejor.CalcularPromedio())
+            {
+                mejor = e;
+            }
+        }
+        Console.WriteLine($"El estudiante con el mejor promedio es: {mejor.nombre}");
     }
 } while (cantidad<=0);
 class Estudiante
